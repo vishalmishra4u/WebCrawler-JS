@@ -11,7 +11,9 @@ const options = {
 
 rp(options)
   .then((data) => {
-    let promises = [];
-    let playerData = [];
-    console.log(data);
+    let userData = [];
+    for(let user of data.directory_items){
+      userData.push({name : user.user.username,likes_received : user.likes_received});
+    }
+    process.stdout.write('loading');
   });
